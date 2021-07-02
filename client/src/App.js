@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 
 import './App.css';
 
@@ -12,17 +14,23 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/api/courses')
-      .then(response => response.json())
+    axios.get('http://localhost:5000/api/courses')
       .then(responseData => {
-        this.setState({ courses: responseData.data });
+        this.setState({ courses: responseData.data }); // with axios, the json data is accessed with .data 
       })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
   }
 
 
   render() {
+    console.log(this.state.courses)
+    const { courses } = this.state;
     return(
-      <div></div>
+      <div>
+        {JSON.stringify(courses)}
+      </div>
     )
   }
 
