@@ -1,40 +1,25 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+// CSS styles
+import './reset.css';
+import './global.css';
+
+//components
+import Courses from './components/Courses';
 
 
-import './App.css';
-
-export default class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      courses: []
-    };
-  }
-
-  componentDidMount() {
-    axios.get('http://localhost:5000/api/courses')
-      .then(responseData => {
-        this.setState({ courses: responseData.data }); // with axios, the json data is accessed with .data 
-      })
-      .catch(error => {
-        console.log('Error fetching and parsing data', error);
-      });
-  }
 
 
-  render() {
-    console.log(this.state.courses)
-    const { courses } = this.state;
-    return(
-      <div>
-        {courses.map((course) => {
-          return <div><ul>{course.title} - {course.description}</ul></div>;
-        })}
-      </div>
-    )
-  }
+function App() {
+
+  return (
+    <Router>
+      <Route exact path="/" component={Courses} />
+    </Router>
+    
+  )
 
 }
 
+export default App;
