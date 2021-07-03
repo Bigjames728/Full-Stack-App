@@ -29,7 +29,9 @@ export default class App extends Component {
     const { courses } = this.state;
     return(
       <div>
-        {JSON.stringify(courses)}
+        {courses.map((course) => {
+          return <div><ul>{course.title} - {course.description}</ul></div>;
+        })}
       </div>
     )
   }
