@@ -7,6 +7,7 @@ import './global.css';
 
 //components
 import Courses from './components/Courses';
+import CourseDetail from './components/CourseDetail';
 
 
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Courses} />
+      <Route exact path="/courses/:id" component={CourseDetail} />
     </Router>
     
   )
