@@ -55,6 +55,9 @@ export default class Data {
 
   //Add createCourse(), updateCourse(), and deleteCourse() functions
 
+//   async deleteCourse(path, username, password) {
+
+//   }
 
 
 }
