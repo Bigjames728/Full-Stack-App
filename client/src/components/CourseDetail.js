@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Header from './Header';
 
 
-function CourseDetails() {
+function CourseDetail() {
 
     const [course, setCourse] = useState([]);
     const { id } = useParams();
@@ -23,16 +23,17 @@ function CourseDetails() {
     return(
         <React.Fragment>
             <Header></Header>
-                <div className="wrap main--grid">
-                    {courses.map(course => {
-                        return  <Link className="course--module course--link" to={`/courses/${course.id}`} key={`course `+ course.id}>
-                                    <h2 className="course--label">Course</h2>
-                                    <h3 className="course--title">{course.title}</h3>
-                                </Link>
-                    })}
+            <main>
+              <div className="actions--bar">
+                <div className="wrap">
+                  <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
+                  <Link className="button" to={`/`} onClick={handleDelete}>Delete Course</Link>
+                  <Link className="button" to="/">Return to List</Link>
                 </div>
+              </div>
+            </main>
         </React.Fragment>
     )
 }
 
-export default CourseDetails;
+export default CourseDetail;
