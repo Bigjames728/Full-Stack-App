@@ -53,7 +53,27 @@ export default class Data {
     }
   }
 
-  //Add
+  //Add api methods - keep in data file
+
+  // Get all courses
+  async getCourses() {
+    const response = await this.api('/courses', 'GET', null);
+    if (response.status === 200) {
+      return response.json().then(data => data);
+    } else {
+      throw new Error();
+    }
+  }
+
+  // Get specific course
+  async getCourse(id) {
+    const response = await this.api(`/courses/${id}`, 'GET', null);
+    if (response.status === 200) {
+      return response.json().then(data => data);
+    } else {
+      throw new Error();
+    }
+  }
 
 
   //Add createCourse(), updateCourse(), and deleteCourse() functions
