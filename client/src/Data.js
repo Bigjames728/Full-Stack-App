@@ -53,16 +53,9 @@ export default class Data {
     }
   }
 
+  //Add
+
+
   //Add createCourse(), updateCourse(), and deleteCourse() functions
 
-  async deleteCourse(path) {
-    const response = await this.api(path, 'DELETE', null)
-    if (response.status === 500) {
-        return response.json()
-        .then(res => res)
-    }
-    else if (response.status === 204) {
-        return null;
-    }
-  }
 }
