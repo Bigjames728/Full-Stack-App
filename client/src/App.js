@@ -22,12 +22,9 @@ function App() {
 
   return (
     <Router>
-      
       <Route exact path="/" component={CoursesWithContext} />
     </Router>
-    
   )
-
 }
 
 export default App;
