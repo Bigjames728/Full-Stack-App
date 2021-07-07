@@ -7,6 +7,7 @@ import './global.css';
 
 //components
 import Courses from './components/Courses';
+import Header from './components/Header';
 
 //import context
 import withContext from './Context';
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <Route exact path="/" component={CoursesWithContext} />
     </Router>
   )
