@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 
 
 
+
 function CourseDetail() {
 
   const data = new Data();
@@ -79,7 +80,7 @@ function CourseDetail() {
                 <div>
                   <h3 className="course--detail--title">Course</h3>
                   <h4 className="course--name">{course.title}</h4>
-                  <p>by {user.firstName} {user.lastName}</p>
+                  <p>by </p>
                   <p>{courseDescription}</p>
                 </div>
                 <div>
