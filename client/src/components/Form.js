@@ -6,6 +6,7 @@ const Form = (props) => {
     errors,
     submit,
     elements,
+    submitButtonText
   } = props;
 
     function handleSubmit(event) {
@@ -35,13 +36,14 @@ const Form = (props) => {
 
         return errorsDisplay;
     }
+    
 
     return (
         <div>
             <ErrorsDisplay errors={errors} />
             <form onSubmit={handleSubmit}>
             {elements()}
-                <button className="button" type="submit">Sign Up</button>
+                <button className="button" type="submit">{submitButtonText}</button>
                 <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
