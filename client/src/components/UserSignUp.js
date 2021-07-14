@@ -95,14 +95,14 @@ export default class UserSignUp extends Component {
     }
 
     change = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+        const name = event.target.name;
+        const value = event.target.value;
 
-    this.setState(() => {
-        return {
-        [name]: value
-        };
-    });
+        this.setState(() => {
+            return {
+            [name]: value
+            };
+        });
     }
 
     submit = () => {
@@ -127,12 +127,16 @@ export default class UserSignUp extends Component {
                 this.setState({ errors });
                 } else {
                 context.actions.signIn(emailAddress, password)
-                    this.props.history.push('/authenticated');
+                    this.props.history.push('/');
                 }
             })
             .catch( err => { // handle rejected promises (for instance if the API is down or connectivity issues)
                 console.log(err);
                 this.props.history.push('/error'); // push to history stack
+            });
+        } else {
+            this.setState({
+                errors: ['"Password" and "Confirm Password" do not match. Please make sure they match.']
             });
         }
   
