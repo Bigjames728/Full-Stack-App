@@ -108,7 +108,7 @@ export default class UserSignUp extends Component {
     submit = () => {
         const { context } = this.props;
 
-        const { firstName, lastName, emailAddress, password, confirmPassword } = this.state;
+        const { firstName, lastName, emailAddress, password, confirmPassword, errors } = this.state;
 
         // New user payload
         const user = {
@@ -118,7 +118,7 @@ export default class UserSignUp extends Component {
         password
         };
 
-        if (password === confirmPassword) { // Check to see if password and confirmPassword match
+        if (errors || password === confirmPassword) { // Check to see if password and confirmPassword match
 
             // If they do match, create user
             context.data.createUser(user)
