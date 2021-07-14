@@ -5,7 +5,6 @@ const Form = (props) => {
     cancel,
     errors,
     submit,
-    submitButtonText,
     elements,
   } = props;
 
@@ -42,7 +41,7 @@ const Form = (props) => {
             <ErrorsDisplay errors={errors} />
             <form onSubmit={handleSubmit}>
             {elements()}
-                <button className="button" type="submit">{submitButtonText}</button>
+                <button className="button" type="submit">Sign Up</button>
                 <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
