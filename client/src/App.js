@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // CSS styles
 import './reset.css';
@@ -11,6 +11,7 @@ import CourseDetail from './components/CourseDetail';
 import Header from './components/Header';
 import UserSignUp from './components/UserSignUp';
 import UserSignIn from './components/UserSignIn';
+import NotFound from './components/NotFound';
 
 //import context
 import withContext from './Context';
@@ -30,9 +31,12 @@ function App() {
   return (
     <Router>
       <Header />
-      <Route exact path="/" component={CoursesWithContext} />
-      <Route exact path="/courses/:id" component={CourseDetailWithContext} />
-      <Route path="/signup" component={UserSignUpWithContext} />
+      <Switch>
+        <Route exact path="/" component={CoursesWithContext} />
+        <Route exact path="/courses/:id" component={CourseDetailWithContext} />
+        <Route path="/signup" component={UserSignUpWithContext} />
+        <Route component={NotFound} />
+      </Switch>
     </Router>
   )
 }
