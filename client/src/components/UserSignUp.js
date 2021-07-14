@@ -136,7 +136,7 @@ export default class UserSignUp extends Component {
             });
         } else {
             this.setState({
-                errors: ['"Password" and "Confirm Password" do not match. Please make sure they match.']
+                errors: ['"Password" and "Confirm Password" must match.']
             });
         }
   
