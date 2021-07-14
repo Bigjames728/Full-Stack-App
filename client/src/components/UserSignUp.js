@@ -127,9 +127,7 @@ export default class UserSignUp extends Component {
                 this.setState({ errors });
                 } else {
                 context.actions.signIn(emailAddress, password)
-                    .then(() => {
                     this.props.history.push('/authenticated');
-                    });
                 }
             })
             .catch( err => { // handle rejected promises (for instance if the API is down or connectivity issues)
