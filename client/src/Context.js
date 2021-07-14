@@ -6,13 +6,13 @@ const Context = React.createContext();
 
 export class Provider extends Component {
 
-  state = {
-    authenticatedUser: Cookies.getJSON('authenticatedUser') || null
-  };
-
   constructor() {
     super();
     this.data = new Data();
+    this.state = {
+      authenticatedUser: Cookies.getJSON('authenticatedUser') || null,
+      originalPassword: null
+    }
   }
 
   render() {
@@ -21,6 +21,7 @@ export class Provider extends Component {
     const value = {
       authenticatedUser,
       data: this.data,
+      courses: this.courses,
       actions: { // Add the 'actions' property and object to the Provider's value prop to store any event handlers or actions you want to perform on data that's passed down through context.
         signIn: this.signIn,
         signOut: this.signOut
@@ -34,15 +35,20 @@ export class Provider extends Component {
   }
 
   
-  signIn = async (username, password) => {
-    const user = await this.data.getUser(username, password);
+  signIn = async (emailAddress, password) => {
+    this.setState({
+      originalPassword: password
+    });
+
+    const user = await this.data.getUser(emailAddress, password);
+
     if (user !== null) {
       this.setState(() => {
         return {
           authenticatedUser: user,
         };
       });
-      // Set cookie
+      // Set cookie in memory for 1 day
       Cookies.set('authenticatedUser', JSON.stringify(user), { expires: 1 });
     }
     return user;
@@ -54,6 +60,7 @@ export class Provider extends Component {
         authenticatedUser: null,
       };
     });
+    // Remove cookie after user signs out
     Cookies.remove('authenticatedUser');
   }
 }
