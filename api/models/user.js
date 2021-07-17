@@ -75,15 +75,22 @@ module.exports = (sequelize) => {
         notEmpty: {
           msg: 'Please provide a password.'
         },
+        len: {
+          args: [8,20],
+          msg: 'Password should be between 8 and 20 characters.'
+        },
+        hooks: {
+            afterValidate: set(val) {
+              const hashedPassword = bcrypt.hashSync(val, 10);
+              this.setDataValue('password', hashedPassword);
+            }
+        },
       },
       // Included lenth validation for password in my hashing function below
-      set(val) {
-        if (val.length < 8 || val.length > 20) {
-          throw Error('The password should be between 8 and 20 characters.');
-        }
-        const hashedPassword = bcrypt.hashSync(val, 10);
-        this.setDataValue('password', hashedPassword);
-      },
+      // set(val) {
+        // const hashedPassword = bcrypt.hashSync(val, 10);
+        // this.setDataValue('password', hashedPassword);
+      // },
     }
   }, {
     sequelize,
@@ -91,3 +98,4 @@ module.exports = (sequelize) => {
   });
   return User;
 };
+
