@@ -80,10 +80,6 @@ module.exports = (sequelize) => {
           msg: 'Password should be between 8 and 20 characters.'
         },
       },
-      // Included lenth validation for password in my hashing function below
-      // set(val) {
-        
-      // },
     }
   }, {
     hooks: {
