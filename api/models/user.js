@@ -83,10 +83,8 @@ module.exports = (sequelize) => {
     }
   }, {
     hooks: {
-      afterValidate: (User, val) => {
-        const hashedPassword = bcrypt.hashSync(val, 10);
-        User.password('password', hashedPassword);
-        // User.password = bcrypt.hashSync(val, 10);
+      afterValidate: (User, options) => {
+        User.password = bcrypt.hashSync(User.password, 10);
       }
     },
     sequelize,
