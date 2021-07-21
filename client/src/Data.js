@@ -17,7 +17,7 @@ export default class Data {
 
     // Check if auth is required
     if (requireAuth) {
-      const encodedCredentials = btoa(`${credentials.username}:${credentials.password}`);
+      const encodedCredentials = btoa(`${credentials.emailAddress}:${credentials.password}`);
 
       options.headers['Authorization'] = `Basic ${encodedCredentials}`;
     }
@@ -25,8 +25,8 @@ export default class Data {
     return fetch(url, options);
   }
 
-  async getUser(username, password) { // added new parameters (username, passowrd)
-    const response = await this.api(`/users`, 'GET', null, true, { username, password }); // This route requires authentication since it says true and will take in username, password
+  async getUser(emailAddress, password) { // added new parameters (emailAddress, passowrd)
+    const response = await this.api(`/users`, 'GET', null, true, { emailAddress, password }); // This route requires authentication since it says true and will take in username, password
     if (response.status === 200) {
       return response.json().then(data => data);
     }
