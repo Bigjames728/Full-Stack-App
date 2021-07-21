@@ -34,6 +34,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={CoursesWithContext} />
         <Route exact path="/courses/:id" component={CourseDetailWithContext} />
+        <Route path="/signin" component={UserSignInWithContext} />
         <Route path="/signup" component={UserSignUpWithContext} />
         <Route component={NotFound} />
       </Switch>
