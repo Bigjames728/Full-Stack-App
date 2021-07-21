@@ -21,6 +21,7 @@ const CoursesWithContext = withContext(Courses);
 const CourseDetailWithContext = withContext(CourseDetail);
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn);
+const HeaderWithContext = withContext(Header);
 
 
 
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <HeaderWithContext />
       <Switch>
         <Route exact path="/" component={CoursesWithContext} />
         <Route exact path="/courses/:id" component={CourseDetailWithContext} />
