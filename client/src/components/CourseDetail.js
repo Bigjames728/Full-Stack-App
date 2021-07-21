@@ -13,10 +13,10 @@ class CourseDetail extends Component {
 
     componentDidMount() {
 
-        const { data } = this.props.context;
+        const { context } = this.props;
         const id = this.props.match.params.id;
 
-        data.getCourse(id)
+        context.data.getCourse(id)
             .then(courseData => {
                 if (courseData) {
                     this.setState({ course: courseData });
@@ -34,11 +34,23 @@ class CourseDetail extends Component {
         const id = this.props.match.params.id;
 
         const {
+            User,
             title,
             description,
             materialsNeeded,
             estimatedTime,
+            userID
         } = this.state.course;
+
+        let firstName, lastName
+
+        if (User) {
+            firstName = User.firstName;
+            lastName = User.lastName;
+        }
+
+        const { context } = this.props;
+        const authUser = context.authenticatedUser.authenticatedUser;
         
         return (
             <main>
@@ -56,8 +68,8 @@ class CourseDetail extends Component {
                             <div>
                                 <h3 className="course--detail--title">Course</h3>
                                 <h4 className="course--name">{title}</h4>
-                                <p>By </p>
-                                <p>{description}</p>
+                                <p>By {`${firstName}`} {`${lastName}`}</p>
+                                <ReactMarkdown>{description}</ReactMarkdown>
                             </div>
                             <div>
                                 <h3 className="course--detail--title">Estimated Time</h3>
