@@ -80,9 +80,6 @@ class CreateCourse extends Component {
             <main>
                 <div className="wrap">
                     <h2>Create Course</h2>
-                    <div className="validation--errors">
-
-                    </div>
                     <Form
                         errors={errors}
                         submit={this.submit}
