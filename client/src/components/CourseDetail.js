@@ -39,7 +39,7 @@ class CourseDetail extends Component {
             description,
             materialsNeeded,
             estimatedTime,
-            userID
+            userId
         } = this.state.course;
 
         let firstName, lastName
@@ -56,9 +56,30 @@ class CourseDetail extends Component {
             <main>
                 <div className="actions--bar">
                     <div className="wrap">
-                        <Link className="button" to={`/courses/${id}/update`}>Update Course</Link>
-                        <Link className="button" to="/">Delete Course</Link>
-                        <Link className="button" to="/">Return to List</Link>
+                        {
+                            (() => {
+                                if (authUser) {
+                                    const authUserId = authUser.id;
+
+                                    if (authUserId === userId) {
+                                        return (
+                                            <React.Fragment>
+                                                <Link className="button" to={`/courses/${id}/update`}>Update Course</Link>
+                                                <Link className="button" to="/">Delete Course</Link>
+                                                <Link className="button" to="/">Return to List</Link>
+                                            </React.Fragment>
+                                        )
+                                    } else {
+                                        return (
+                                            <React.Fragment>
+                                                <Link className="button button-secondary" to="/">Return to List</Link>
+                                            </React.Fragment>
+                                        )
+                                    }
+                                }
+                            })()
+                        }
+                        
                     </div>
                 </div>
                 <div className="wrap">
