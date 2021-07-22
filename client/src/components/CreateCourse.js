@@ -28,7 +28,7 @@ class CreateCourse extends Component {
 
     submit = () => {
         const { context } = this.props;
-        const authUser = context.authenticatedUser.authenticatedUser;
+        const authUser = context.authenticatedUser;
         const emailAddress = authUser.emailAddress;
         const password = authUser.originalPassword;
 
@@ -69,6 +69,7 @@ class CreateCourse extends Component {
     }
 
     render() {
+        console.log(this.context.authenticatedUser);
         const {
             title,
             description,
