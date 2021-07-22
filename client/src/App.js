@@ -13,6 +13,8 @@ import UserSignUp from './components/UserSignUp';
 import UserSignIn from './components/UserSignIn';
 import UserSignOut from './components/UserSignOut';
 import NotFound from './components/NotFound';
+import CreateCourse from './components/CreateCourse';
+import UpdateCourse from './components/UpdateCourse';
 
 //import context
 import withContext from './Context';
@@ -25,6 +27,8 @@ const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn);
 const UserSignOutWithContext = withContext(UserSignOut);
 const HeaderWithContext = withContext(Header);
+const CreateCourseWithContext = withContext(CreateCourse);
+const UpdateCourseWithContext = withContext(UpdateCourse);
 
 
 
@@ -36,6 +40,8 @@ function App() {
     <Router>
       <HeaderWithContext />
       <Switch>
+        <PrivateRoute exact path="/courses/create" component={CreateCourseWithContext} />
+        <PrivateRoute exact path="/courses/update" component={UpdateCourseWithContext} />
         <Route exact path="/" component={CoursesWithContext} />
         <Route exact path="/courses/:id" component={CourseDetailWithContext} />
         <Route exact path="/signin" component={UserSignInWithContext} />
