@@ -44,7 +44,7 @@ class CreateCourse extends Component {
             description,
             estimatedTime,
             materialsNeeded,
-            userId: context.authenticatedUser.authenticatedUser.id
+            userId: authUser.id
         };
 
         context.data.createCourse(newCourse, emailAddress, password)
