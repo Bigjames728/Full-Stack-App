@@ -78,4 +78,46 @@ export default class Data {
 
   //Add createCourse(), updateCourse(), and deleteCourse() functions
 
+  //Create a new course
+  async createCourse(course, emailAddress, passowrd) {
+    const response = await this.api('/courses', 'POST', course, true, { emailAddress, passowrd });
+
+    if (response.status === 201) {
+      return [];
+    } else if (response.status === 400) {
+      return response.json().then(data => {
+        return data;
+      });
+    } else {
+      throw new Error();
+    }
+  }
+
+  //Update a course
+  async updateCourse(course, emailAddress, passowrd) {
+    const response = await this.api(`/courses/${course.id}`, 'PUT', course, true, { emailAddress, passowrd });
+    if (response.status === 204) {
+      return [];
+    } else if (response.status === 400) {
+      return response.json().then(data => {
+        return data;
+      });
+    } else {
+      throw new Error();
+    }
+  }
+
+  //Delete a course
+  async deleteCourse(course, emailAddress, passowrd) {
+    const response = await this.api(`/courses/${course.id}`, 'DELETE', null, true, { emailAddress, passowrd });
+    if (response.status === 204) {
+      return [];
+    } else if (response.status === 400) {
+      return response.json().then(data => {
+        return data;
+      });
+    } else {
+      throw new Error();
+    }
+  }
 }
