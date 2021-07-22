@@ -26,7 +26,7 @@ export default class Data {
   }
 
   async getUser(emailAddress, password) { // added new parameters (emailAddress, passowrd)
-    const response = await this.api(`/users`, 'GET', null, true, { emailAddress, password }); // This route requires authentication since it says true and will take in username, password
+    const response = await this.api(`/users`, 'GET', null, true, { emailAddress, password }); // This route requires authentication since it says true and will take in emailAddress, password
     if (response.status === 200) {
       return response.json().then(data => data);
     }
