@@ -138,3 +138,5 @@ class CreateCourse extends Component {
         );
     };
 };
+
+export default CreateCourse;
