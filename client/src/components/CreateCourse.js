@@ -69,7 +69,7 @@ class CreateCourse extends Component {
     }
 
     render() {
-        console.log(this.context.authenticatedUser);
+        console.log(this.context);
         const {
             title,
             description,
@@ -87,7 +87,7 @@ class CreateCourse extends Component {
                         submit={this.submit}
                         cancel={this.cancel}
                         submitButtonText="Create Course"
-                        elements={() => {
+                        elements={() => (
                             <Fragment>
                                 <div className="main--flex">
                                     <div>
@@ -130,7 +130,7 @@ class CreateCourse extends Component {
                                     </div>
                                 </div>
                             </Fragment>
-                        }}
+                        )}
                     />
                 </div>
             </main>
