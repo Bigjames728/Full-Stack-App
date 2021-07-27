@@ -26,7 +26,7 @@ class Courses extends Component {
     render() {
         
         const { courses } = this.state;
-        console.log(courses);
+        
         return (
             <main>
                 <div className="wrap main--grid">
