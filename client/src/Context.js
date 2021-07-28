@@ -35,12 +35,12 @@ export class Provider extends Component {
   }
 
   
-  signIn = async (emailAddress, password) => {
+  signIn = async (emailAddress, password, userId) => {
     this.setState({
       originalPassword: password
     });
 
-    const user = await this.data.getUser(emailAddress, password);
+    const user = await this.data.getUser(emailAddress, password, userId);
 
     if (user !== null) {
       this.setState(() => {
