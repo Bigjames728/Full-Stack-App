@@ -12,7 +12,9 @@ router.get('/', authenticateUser, asyncHandler( async (req, res) => {
       // Only return the below attributes in the json response
       firstName: user.firstName,
       lastName: user.lastName,
-      emailAddress: user.emailAddress
+      emailAddress: user.emailAddress,
+      id: user.id,
+      password: user.password
     });
 }));
 
