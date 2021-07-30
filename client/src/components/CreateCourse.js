@@ -30,7 +30,7 @@ class CreateCourse extends Component {
         const { context } = this.props;
         const authUser = context.authenticatedUser;
         const emailAddress = authUser.emailAddress;
-        const password = authUser.password;
+        const password = authUser.clientPassword;
 
         const {
             title,
