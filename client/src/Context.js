@@ -11,7 +11,6 @@ export class Provider extends Component {
     this.data = new Data();
     this.state = {
       authenticatedUser: Cookies.getJSON('authenticatedUser') || null,
-      clientPassword: null
     }
   }
 
