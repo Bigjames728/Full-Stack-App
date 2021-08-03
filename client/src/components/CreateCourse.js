@@ -69,7 +69,6 @@ class CreateCourse extends Component {
     }
 
     render() {
-        console.log(this.authenticatedUser);
         const {
             title,
             description,
