@@ -31,7 +31,6 @@ class CourseDetail extends Component {
     }
 
     render() {
-        console.log(this.context);
         const id = this.props.match.params.id;
 
         const {
