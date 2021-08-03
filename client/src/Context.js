@@ -45,7 +45,7 @@ export class Provider extends Component {
         };
       });
       // Set cookie in memory for 1 day
-      Cookies.set('authenticatedUser', JSON.stringify(user), { expires: 1 });
+      Cookies.set('authenticatedUser', JSON.stringify(this.state.authenticatedUser), { expires: 1 });
     }
     return user;
   }
