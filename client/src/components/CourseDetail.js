@@ -30,6 +30,31 @@ class CourseDetail extends Component {
             })
     }
 
+    delete = () => {
+        const { context } = this.props;
+
+        const id = this.props.match.params.id;
+        const emailAddress = context.authenticatedUser.emailAddress;
+        const password = context.authenticatedUser.password;
+
+        let confirmDelete = window.confirm('This will permanently delete this course. Would you like to continue?');
+
+        if (confirmDelete) {
+            context.data.deleteCourse(id, emailAddress, password)
+                .then(dataErrors => {
+                    if (dataErrors.length) {
+                        console.log(`${dataErrors}`);
+                    } else {
+                        this.props.history.push('/');
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    this.props.history.push('/error')
+                });
+        }
+    }
+
     render() {
         const id = this.props.match.params.id;
 
@@ -50,7 +75,9 @@ class CourseDetail extends Component {
         }
 
         const { context } = this.props;
-        const authUser = context.authenticatedUser.authenticatedUser;
+        const authUser = context.authenticatedUser;
+
+        console.log(authUser);
         
         return (
             <main>
@@ -59,13 +86,12 @@ class CourseDetail extends Component {
                         {
                             (() => {
                                 if (authUser) {
-                                    const authUserId = authUser.id;
 
-                                    if (authUserId === userId) {
+                                    if (authUser.id === userId) {
                                         return (
                                             <React.Fragment>
                                                 <Link className="button" to={`/courses/${id}/update`}>Update Course</Link>
-                                                <Link className="button" to="/">Delete Course</Link>
+                                                <Link className="button" to="#" onClick={this.delete}>Delete Course</Link>
                                                 <Link className="button" to="/">Return to List</Link>
                                             </React.Fragment>
                                         )
