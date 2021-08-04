@@ -15,6 +15,8 @@ import UserSignOut from './components/UserSignOut';
 import NotFound from './components/NotFound';
 import CreateCourse from './components/CreateCourse';
 import UpdateCourse from './components/UpdateCourse';
+import Forbidden from './components/Forbidden';
+import UnhandledError from './components/UnhandledError';
 
 //import context
 import withContext from './Context';
@@ -47,6 +49,9 @@ function App() {
         <Route exact path="/signin" component={UserSignInWithContext} />
         <Route exact path="/signup" component={UserSignUpWithContext} />
         <Route exact path="/signout" component={UserSignOutWithContext} />
+        <Route exact path="/notfound" component={NotFound} />
+        <Route exact path="/error" component={UnhandledError} />
+        <Route exact path="/forbidden" component={Forbidden} />
         <Route component={NotFound} />
       </Switch>
     </Router>
