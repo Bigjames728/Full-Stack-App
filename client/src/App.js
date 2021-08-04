@@ -41,7 +41,7 @@ function App() {
       <HeaderWithContext />
       <Switch>
         <PrivateRoute exact path="/courses/create" component={CreateCourseWithContext} />
-        <PrivateRoute exact path="/courses/update" component={UpdateCourseWithContext} />
+        <PrivateRoute exact path="/courses/:id/update" component={UpdateCourseWithContext} />
         <Route exact path="/" component={CoursesWithContext} />
         <Route exact path="/courses/:id" component={CourseDetailWithContext} />
         <Route exact path="/signin" component={UserSignInWithContext} />
