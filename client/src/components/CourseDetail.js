@@ -99,6 +99,7 @@ class CourseDetail extends Component {
                                         return (
                                             <React.Fragment>
                                                 <Link className="button button-secondary" to="/">Return to List</Link>
+                                                
                                             </React.Fragment>
                                         )
                                     }
