@@ -23,7 +23,7 @@ router.get('/', asyncHandler( async (req, res) => {
 router.get('/:id', asyncHandler ( async (req, res) => {
     const course = await Course.findByPk(req.params.id, {
         // In the response, only return the below attributes for the course model, as well as include the User model but only the specified attributes there as well.
-        attributes: ['id', 'title', 'description', 'estimatedTime', 'materialsNeeded'],
+        attributes: ['id', 'title', 'description', 'estimatedTime', 'materialsNeeded', 'userId'],
         include: { model: User, attributes: ['id', 'firstName', 'lastName', 'emailAddress', 'password'] }
     });
     if (course) {
