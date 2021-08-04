@@ -122,10 +122,10 @@ class UpdateCourse extends Component {
                             <Fragment>
                                 <div className="main--flex">
                                 <div>
-                                    <label htmlFor="courseTitle">Course Title</label>
+                                    <label htmlFor="title">Course Title</label>
                                     <input
-                                        id="courseTitle"
-                                        name="courseTitle"
+                                        id="title"
+                                        name="title"
                                         type="text"
                                         value={title}
                                         onChange={this.change}
@@ -133,10 +133,10 @@ class UpdateCourse extends Component {
 
                                     <p>By Joe Smith</p>
 
-                                    <label htmlFor="courseDescription">Course Description</label>
+                                    <label htmlFor="description">Course Description</label>
                                     <textarea
-                                        id="courseDescription"
-                                        name="courseDescription"
+                                        id="description"
+                                        name="description"
                                         value={description}
                                         onChange={this.change}
                                     ></textarea>
