@@ -80,10 +80,10 @@ class UpdateCourse extends Component {
         };
 
         context.data.updateCourse(updatedCourse, emailAddress, password)
-            .then(dataErrors => {
-                if (dataErrors.length) {
+            .then(errors => {
+                if (errors.length) {
                     this.setState({
-                        errors: dataErrors
+                        errors
                     });
                 } else {
                     this.props.history.push(`/courses/${updatedCourse.id}`);
