@@ -15,11 +15,13 @@ class UpdateCourse extends Component {
         }
     }
 
+    // When the component first mounts, get the data for the course you are trying to update
     componentDidMount() {
         const { context } = this.props;
         const id = this.props.match.params.id;
         const authUserId = context.authenticatedUser.id;
 
+        // Call the getCourse method to get the course details
         context.data.getCourse(id)
             .then(courseData => {
                 if (courseData) {
@@ -79,6 +81,7 @@ class UpdateCourse extends Component {
             userId
         };
 
+        // Call updateCourse method to update the existing course with new values
         context.data.updateCourse(updatedCourse, emailAddress, password)
             .then(errors => {
                 if (errors.length) {

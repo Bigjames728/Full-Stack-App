@@ -105,6 +105,7 @@ export default class UserSignUp extends Component {
         });
     }
 
+    // Submit adds state values to the API as a new user
     submit = () => {
         const { context } = this.props;
 

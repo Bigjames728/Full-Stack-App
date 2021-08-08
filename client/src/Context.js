@@ -33,7 +33,7 @@ export class Provider extends Component {
     );
   }
 
-  
+  // Sign in the user  
   signIn = async (emailAddress, password) => {
     
     const user = await this.data.getUser(emailAddress, password);
@@ -50,6 +50,7 @@ export class Provider extends Component {
     return user;
   }
 
+  // Sign out the user
   signOut = () => {
     this.setState({
       authenticatedUser: null

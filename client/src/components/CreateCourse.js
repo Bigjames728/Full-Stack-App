@@ -15,6 +15,7 @@ class CreateCourse extends Component {
         }
     }
 
+    // Change updates user input values
     change = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -26,6 +27,7 @@ class CreateCourse extends Component {
         });
     }
 
+    // Submit adds state values to the API as a new course
     submit = () => {
         const { context } = this.props;
         const authUser = context.authenticatedUser;
@@ -47,6 +49,7 @@ class CreateCourse extends Component {
             userId: authUser.id
         };
 
+        // Call context.data.createCourse to create the new course with the newCourse values
         context.data.createCourse(newCourse, emailAddress, password)
             .then(errors => {
                 if (errors.length) {

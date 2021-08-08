@@ -11,6 +11,7 @@ class CourseDetail extends Component {
         }
     }
 
+    // When component first mounts retrieve the individual course details
     componentDidMount() {
 
         const { context } = this.props;
@@ -30,6 +31,7 @@ class CourseDetail extends Component {
             })
     }
 
+    // Deletes a course (if the user owns that course)
     delete = () => {
         const { context } = this.props;
 
