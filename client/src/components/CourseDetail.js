@@ -15,6 +15,7 @@ class CourseDetail extends Component {
     componentDidMount() {
 
         const { context } = this.props;
+        console.log(this.context);
         const id = this.props.match.params.id;
 
         context.data.getCourse(id)
